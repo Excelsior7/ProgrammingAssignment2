@@ -14,7 +14,11 @@ makeCacheMatrix <- function(matrix = matrix()) {
   }
   
   getInverseMatrix <- function() { matrix_inverse; }
-  setInverseMatrix <- function(matrix_inverse_new) { matrix_inverse <<- matrix_inverse_new; }
+  setInverseMatrix <- function(matrix_inverse_new) { 
+    print(sys.call(which = sys.parent(1)))
+    matrix_inverse <<- matrix_inverse_new; 
+  
+  }
   
   list(getMatrix = getMatrix, setMatrix = setMatrix, 
        getInverseMatrix = getInverseMatrix, setInverseMatrix = setInverseMatrix);
