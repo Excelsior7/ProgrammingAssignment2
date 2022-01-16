@@ -21,7 +21,11 @@ makeCacheMatrix <- function(matrix = matrix()) {
 }
 
 
-## Write a short comment describing this function
+# Description : cacheSolve is the interface to the closure environment passed as argument 
+# and has the function to compute and cache the inverse of the matrix cached in the closure environment
+# if it is not already cached in it.
+
+# Return value : The inverse of the matrix cached in the closure environment.
 
 cacheSolve <- function(cachematrix_closures, ...) {
   
