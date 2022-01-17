@@ -27,7 +27,13 @@ makeCacheMatrix <- function(matrix = matrix()) {
   }
   
   getInverseMatrix <- function() { matrix_inverse; }
-  setInverseMatrix <- function(matrix_inverse_new) { matrix_inverse <<- matrix_inverse_new; }
+  setInverseMatrix <- function(matrix_inverse_new) { 
+    
+    isCallAccepted <- stri_detect(deparse(sys.call(which = sys.parent(1))), regex = 'cacheSolve\\(.+\\)');
+    
+    if(isCallAccepted) { matrix_inverse <<- matrix_inverse_new; }
+    else { stop("You need to go through the cacheSolve function to change the inverse of the matrix.") }
+  }
   
   list(getMatrix = getMatrix, setMatrix = setMatrix, 
        getInverseMatrix = getInverseMatrix, setInverseMatrix = setInverseMatrix);
