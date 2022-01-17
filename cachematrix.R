@@ -16,6 +16,17 @@
 
 # Return value : makeCacheMatrix return a list of closures allowing to interact with the closure setup.
 
+## 
+# I'd like to briefly justify the code in setInverseMatrix by the flaw that this code avoids: in the code 
+# given as an example by our instructors, we can (if we wanted) cache via setInverseMatrix, a matrix that is not the inverse 
+# of the matrix already in the cache of the closure setup, and that's precisely the reason for cacheSolve 
+# to avoid this problem. 
+# So described in words, the setInverseMatrix function can only be called from cacheSolve, otherwise it 
+# refuses to update matrix_inverse.
+
+# Note to readers: if you have any recommendations on my approach, I'd be happy to take them into account, thanks.
+##
+
 makeCacheMatrix <- function(matrix = matrix()) {
   
   matrix_inverse <- NULL;
