@@ -1,20 +1,20 @@
 ###
 
 # The motivation behind the makeCacheMatrix function is to be able to create a self-contained
-# environment in which a matrix of interest and its inverse can be stored with the added benefit of limiting 
+# environment (closure setup) in which a matrix of interest and its inverse can be stored with the added benefit of limiting 
 # potential corruption of their values.
 
 # The motivation behind the cacheSolve function is to cache (in the closure setup) the correct inverse of 
 # the matrix cached in the closure setup passed as an argument, with the added benefit of limiting 
-# time-consuming or unnecessary computations by directly returning the inverse if it already exists.
+# time-consuming and/or unnecessary computations by directly returning the inverse if it already exists.
 
 ###
 
 
 # Description : makeCacheMatrix is a function whose execution environment are also a closure setup
-# for gets and sets (the closures) that interact in this environment with a matrix and its inverse.
+# for gets and sets (the closures) that interact in this environment with the following values : a matrix and its inverse.
 
-# Return value : makeCacheMatrix return a list of closures allowing to interact with the execution environment.
+# Return value : makeCacheMatrix return a list of closures allowing to interact with the closure setup.
 
 makeCacheMatrix <- function(matrix = matrix()) {
   
@@ -34,7 +34,7 @@ makeCacheMatrix <- function(matrix = matrix()) {
 }
 
 
-# Description : cacheSolve is the interface to the closure setup passed as argument 
+# Description : cacheSolve is one interface to the closure setup passed as argument 
 # and has the function to compute and cache the inverse of the matrix cached in the closure setup
 # if it is not already cached in it.
 
